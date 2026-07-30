@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #050505;
+    color: #F0EDE6;
+    font-family: 'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
+  }
+}
+
+/* Three.js canvas transparency */
+canvas {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(139,92,246,0.15); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(139,92,246,0.3); }
+
+/* CSS Variables — Purple Dark Theme */
+:root {
+  --bg-deep: #050505;
+  --bg-primary: #0A0A0B;
+  --bg-elevated: #101014;
+  --bg-glass: rgba(16, 16, 20, 0.6);
+  --bg-glass-strong: rgba(16, 16, 20, 0.85);
+  --accent-primary: #8B5CF6;
+  --accent-secondary: #A78BFA;
+  --accent-tertiary: #7C3AED;
+  --accent-glow: rgba(139, 92, 246, 0.2);
+  --accent-border: rgba(139, 92, 246, 0.15);
+  --accent-soft: rgba(139, 92, 246, 0.08);
+  --accent-gradient: linear-gradient(135deg, #7C3AED 0%, #8B5CF6 50%, #A78BFA 100%);
+  --text-primary: #F0EDE6;
+  --text-secondary: rgba(240, 237, 230, 0.5);
+  --text-tertiary: rgba(240, 237, 230, 0.2);
+}
+
+/* Glass utilities */
+.glass {
+  background: var(--bg-glass);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--accent-border);
+}
+
+.glass-strong {
+  background: var(--bg-glass-strong);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--accent-border);
+}
+
+/* Input field styling */
+.input-field {
+  width: 100%;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--accent-border);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  outline: none;
+  transition: all 0.2s ease;
+}
+.input-field:focus {
+  border-color: var(--accent-primary);
+  background: rgba(255,255,255,0.05);
+}
+.input-field::placeholder {
+  color: var(--text-tertiary);
+}
+
+/* Animations */
+@keyframes shimmer-sweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Hide scrollbar for chat */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
